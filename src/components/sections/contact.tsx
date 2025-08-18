@@ -13,6 +13,7 @@ import { BackgroundBeamsStatic } from "../ui/aceternity/background-beams-static"
 import { useToast } from "@/hooks/use-toast";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Skeleton } from "../ui/skeleton";
+import { motion } from "framer-motion";
 
 function SubmitButton() {
     const { pending } = useFormStatus();
@@ -106,10 +107,20 @@ export default function ContactSection() {
         setIsClient(true);
     }, []);
 
+    const FADE_UP_ANIMATION_VARIANTS = {
+        hidden: { opacity: 0, y: 10 },
+        show: { opacity: 1, y: 0, transition: { type: "spring" } },
+      };
 
     return (
         <section id="contact" className="relative py-20 lg:py-32 overflow-hidden">
-             <div className="container mx-auto px-4 z-10 relative">
+             <motion.div 
+                initial="hidden"
+                whileInView="show"
+                variants={FADE_UP_ANIMATION_VARIANTS}
+                viewport={{ once: true }}
+                className="container mx-auto px-4 z-10 relative"
+            >
                 <div className="text-center mb-12">
                     <h2 className="font-headline text-3xl md:text-4xl font-bold">Get In Touch</h2>
                     <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
@@ -153,7 +164,7 @@ export default function ContactSection() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
             <BackgroundBeamsStatic />
         </section>
     );

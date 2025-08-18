@@ -1,8 +1,12 @@
+
+"use client";
+
 import Image from "next/image";
 import { Card } from "../ui/card";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const SightLogo = () => (
   <svg
@@ -41,17 +45,28 @@ const SightLogo = () => (
         fontWeight="normal"
         className="fill-accent-foreground"
       >
-        <tspan x="0" y="65">Special Interest Group on</tspan>
-        <tspan x="0" y="80">Humanitarian Technology</tspan>
+        <tspan x="0" y="60">Special Interest Group on</tspan>
+        <tspan x="0" y="75">Humanitarian Technology</tspan>
       </text>
     </g>
   </svg>
 );
 
 export default function AboutSection() {
+  const FADE_UP_ANIMATION_VARIANTS = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0, transition: { type: "spring" } },
+  };
+
   return (
     <section id="about" className="py-20 lg:py-32 bg-background">
-      <div className="container mx-auto px-4">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        viewport={{ once: true }}
+        className="container mx-auto px-4"
+      >
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <h2 className="font-headline text-3xl md:text-4xl font-bold mb-4">About SIGHT SB CEK</h2>
@@ -80,7 +95,7 @@ export default function AboutSection() {
              </Card>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

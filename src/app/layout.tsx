@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "IEEE SIGHT SB CEK",
     description: "Official landing page for the IEEE SB CEK SIGHT (Special Interest Group on Humanitarian Technology) chapter.",
-    url: "https://ieee-sight-sb-cek.vercel.app", // Replace with your actual domain
+    url: "https://sightieee.vercel.app/", // Replace with your actual domain
     siteName: "SIGHT Landing",
     images: [
       {

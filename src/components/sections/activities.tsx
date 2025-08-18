@@ -1,4 +1,8 @@
+
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const activities = [
     {
@@ -87,28 +91,52 @@ const activities = [
       },
   ];
 
-const TimelineItem = ({ title, content, isLast }: { title: string, content: React.ReactNode, isLast: boolean }) => (
-    <div className="relative pl-8 sm:pl-12">
-        <div className="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-primary">
-            <div className="h-2 w-2 rounded-full bg-primary-foreground" />
-        </div>
-        {!isLast && <div className="absolute left-3 top-8 w-px bg-border h-full" />}
-        <div className="mb-10">
-            <h2 className="bg-secondary text-secondary-foreground rounded-full text-base w-fit px-4 py-2 mb-4 font-semibold">
-                {title}
-            </h2>
-            <div className="text-sm prose prose-sm dark:prose-invert">
-                {content}
+const TimelineItem = ({ title, content, isLast }: { title: string, content: React.ReactNode, isLast: boolean }) => {
+    const FADE_UP_ANIMATION_VARIANTS = {
+        hidden: { opacity: 0, y: 10 },
+        show: { opacity: 1, y: 0, transition: { type: "spring" } },
+    };
+
+    return (
+        <motion.div 
+            initial="hidden"
+            whileInView="show"
+            variants={FADE_UP_ANIMATION_VARIANTS}
+            viewport={{ once: true }}
+            className="relative pl-8 sm:pl-12"
+        >
+            <div className="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+                <div className="h-2 w-2 rounded-full bg-primary-foreground" />
             </div>
-        </div>
-    </div>
-);
+            {!isLast && <div className="absolute left-3 top-8 w-px bg-border h-full" />}
+            <div className="mb-10">
+                <h2 className="bg-secondary text-secondary-foreground rounded-full text-base w-fit px-4 py-2 mb-4 font-semibold">
+                    {title}
+                </h2>
+                <div className="text-sm prose prose-sm dark:prose-invert">
+                    {content}
+                </div>
+            </div>
+        </motion.div>
+    );
+};
 
 
 export default function ActivitiesSection() {
+    const FADE_UP_ANIMATION_VARIANTS = {
+        hidden: { opacity: 0, y: 10 },
+        show: { opacity: 1, y: 0, transition: { type: "spring" } },
+    };
+
   return (
     <section id="activities" className="bg-background py-20 lg:py-32">
-        <div className="container mx-auto px-4">
+        <motion.div 
+            initial="hidden"
+            whileInView="show"
+            variants={FADE_UP_ANIMATION_VARIANTS}
+            viewport={{ once: true }}
+            className="container mx-auto px-4"
+        >
             <div className="text-center mb-16">
                 <h2 className="font-headline text-3xl md:text-4xl font-bold">Activities & Initiatives</h2>
                 <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
@@ -125,7 +153,7 @@ export default function ActivitiesSection() {
                     />
                 ))}
             </div>
-        </div>
+        </motion.div>
     </section>
   );
 }

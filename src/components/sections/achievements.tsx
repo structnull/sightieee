@@ -1,5 +1,9 @@
+
+"use client";
+
 import { FileText, Lightbulb, Trophy, Users } from "lucide-react";
 import { BentoGrid, BentoGridItem } from "../ui/aceternity/bento-grid";
+import { motion } from "framer-motion";
 
 export default function AchievementsSection() {
   const items = [
@@ -32,10 +36,21 @@ export default function AchievementsSection() {
       icon: <FileText className="h-4 w-4 text-muted-foreground" />,
     },
   ];
+  
+  const FADE_UP_ANIMATION_VARIANTS = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0, transition: { type: "spring" } },
+  };
 
   return (
     <section id="achievements" className="py-20 lg:py-32 bg-muted/40">
-      <div className="container mx-auto px-4">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        variants={FADE_UP_ANIMATION_VARIANTS}
+        viewport={{ once: true }}
+        className="container mx-auto px-4"
+      >
         <div className="text-center mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">Our Impact & Achievements</h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
@@ -54,7 +69,7 @@ export default function AchievementsSection() {
             />
           ))}
         </BentoGrid>
-      </div>
+      </motion.div>
     </section>
   );
 }

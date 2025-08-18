@@ -1,6 +1,7 @@
 import { Instagram, Linkedin, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import Image from "next/image";
 
 const SightLogo = () => (
     <svg
@@ -87,6 +88,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="flex flex-col gap-4 md:col-span-2">
             <Link href="/" className="flex items-end gap-6">
+                <Image src="https://ieeesbcek.org/images/ieee.png" alt="IEEE Logo" width={100} height={40} className="h-12 w-auto invert dark:invert-0" />
                 <SightLogo />
             </Link>
           </div>
