@@ -90,7 +90,7 @@ export default function AboutSection() {
             </Link>
           </div>
           <div className="order-1 md:order-2">
-             <Card className="overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 w-full h-[400px] p-8 flex items-center justify-center bg-muted/20">
+             <Card className="overflow-hidden shadow-lg w-full h-[400px] p-8 flex items-center justify-center bg-muted/20">
                 <SightLogo />
              </Card>
           </div>
