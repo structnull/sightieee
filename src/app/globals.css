@@ -71,3 +71,104 @@
     scroll-behavior: smooth;
   }
 }
+
+.cursor__dot,
+.cursor__ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+.cursor__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.cursor__dot.clicked {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.5;
+}
+
+
+.cursor__ring {
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cursor__ring.clicked {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.cursor__ring .inner svg {
+  fill: none;
+  stroke: white;
+  stroke-width: 1px;
+  transition: transform 0.3s ease;
+}
+
+.cursor__ring .moveable,
+.cursor__ring .draggable,
+.cursor__ring .playable,
+.cursor__ring .prev,
+.cursor__ring .next {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cursor__ring .moveable svg,
+.cursor__ring .draggable svg {
+  width: 60px;
+  height: 60px;
+}
+
+.cursor__ring .prev,
+.cursor__ring .next {
+    width: 8px;
+    height: 14px;
+}
+
+.cursor__ring .prev svg,
+.cursor__ring .next svg {
+    width: 100%;
+    height: 100%;
+    stroke: #fff;
+    fill: #fff;
+}
+
+/* Hide default cursor */
+body, a, button {
+  cursor: none;
+}
+
+/* Hover states */
+a:hover ~ .cursor__ring,
+button:hover ~ .cursor__ring {
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+a:hover ~ .cursor__dot,
+button:hover ~ .cursor__dot {
+  opacity: 0;
+}
+
+.cursor-pointer .cursor__ring .inner svg {
+  transform: scale(1.5);
+}
+
+.cursor-pointer .cursor__dot {
+    opacity: 0;
+}

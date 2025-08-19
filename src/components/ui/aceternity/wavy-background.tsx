@@ -10,7 +10,7 @@ export const WavyBackground = ({
   colors,
   waveWidth,
   backgroundFill,
-  blur = 10,
+  blur = 12,
   speed = "fast",
   waveOpacity = 0.5,
   ...props
@@ -69,6 +69,9 @@ export const WavyBackground = ({
     "#c084fc",
     "#e879f9",
     "#22d3ee",
+    "#f472b6",
+    "#fb923c",
+    "#facc15",
   ];
   const drawWave = (n: number) => {
     nt += getSpeed();
@@ -77,7 +80,7 @@ export const WavyBackground = ({
       ctx.lineWidth = waveWidth || 50;
       ctx.strokeStyle = waveColors[i % waveColors.length];
       for (x = 0; x < w; x += 5) {
-        var y = noise(x / 800, 0.3 * i, nt) * 100;
+        var y = noise(x / 700, 0.3 * i, nt) * 100;
         ctx.lineTo(x, y + h * 0.5); // Visually center the wave
       }
       ctx.stroke();
@@ -91,7 +94,7 @@ export const WavyBackground = ({
     ctx.fillStyle = backgroundFill || "black";
     ctx.globalAlpha = waveOpacity || 0.5;
     ctx.fillRect(0, 0, w, h);
-    drawWave(5);
+    drawWave(8);
     animationFrameId = requestAnimationFrame(render);
   };
 

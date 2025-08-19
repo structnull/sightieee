@@ -32,13 +32,13 @@ export default function HeroSection() {
         >
           <motion.h1
             variants={FADE_UP_ANIMATION_VARIANTS}
-            className="text-white font-headline text-4xl md:text-6xl lg:text-7xl font-bold text-center"
+            className="text-white font-headline text-4xl md:text-6xl lg:text-7xl font-bold text-center [text-shadow:0_2px_8px_rgba(0,0,0,0.5)]"
           >
             Technology for Humanity
           </motion.h1>
           <motion.p
             variants={FADE_UP_ANIMATION_VARIANTS}
-            className="text-white/80 text-sm md:text-lg max-w-xl mt-6 text-center"
+            className="text-white text-sm md:text-lg max-w-xl mt-6 text-center [text-shadow:0_1px_4px_rgba(0,0,0,0.5)]"
           >
             IEEE SIGHT SB CEK: Leveraging engineering and technology to address local challenges and build a sustainable future for our community.
           </motion.p>

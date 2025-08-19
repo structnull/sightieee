@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
+import CustomCursor from "@/components/ui/custom-cursor";
 
 export const metadata: Metadata = {
   title: "IEEE SIGHT SB CEK",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "IEEE SIGHT SB CEK",
     description: "Official landing page for the IEEE SB CEK SIGHT (Special Interest Group on Humanitarian Technology) chapter.",
-    url: "https://sightieee.vercel.app/", // Replace with your actual domain
+    url: "https://ieee-sight-sb-cek.vercel.app", // Replace with your actual domain
     siteName: "SIGHT Landing",
     images: [
       {
@@ -50,6 +51,7 @@ export default function RootLayout({
         >
           {children}
           <Toaster />
+          <CustomCursor />
         </ThemeProvider>
       </body>
     </html>

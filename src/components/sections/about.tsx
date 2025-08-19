@@ -45,8 +45,8 @@ const SightLogo = () => (
         fontWeight="normal"
         className="fill-accent-foreground"
       >
-        <tspan x="0" y="60">Special Interest Group on</tspan>
-        <tspan x="0" y="75">Humanitarian Technology</tspan>
+        <tspan x="0" y="65">Special Interest Group on</tspan>
+        <tspan x="0" y="80">Humanitarian Technology</tspan>
       </text>
     </g>
   </svg>
