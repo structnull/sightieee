@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Orb from "./Orb";
+import Orb from "../ui/Orb/Orb";
 
 export default function HeroSection() {
   const FADE_UP_ANIMATION_VARIANTS = {
@@ -14,8 +14,8 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="w-full mx-auto h-[calc(100vh-5rem)] relative">
-      {/* Orb background */}
-      <div className="absolute inset-0 -z-10">
+      {/* Orb background with dark base */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black via-slate-900 to-black">
         <Orb
           hoverIntensity={0.5}
           rotateOnHover={true}
