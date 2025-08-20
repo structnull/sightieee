@@ -172,3 +172,172 @@ button:hover ~ .cursor__dot {
 .cursor-pointer .cursor__dot {
     opacity: 0;
 }
+
+/* High-performance hero background animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes gradient-xy {
+  0%, 100% {
+    transform: translate(-100%, -100%);
+  }
+  25% {
+    transform: translate(100%, -100%);
+  }
+  50% {
+    transform: translate(100%, 100%);
+  }
+  75% {
+    transform: translate(-100%, 100%);
+  }
+}
+
+@keyframes wave-slow {
+  0% {
+    transform: translateX(-100%) skew(-5deg);
+  }
+  100% {
+    transform: translateX(100%) skew(-5deg);
+  }
+}
+
+@keyframes wave-fast {
+  0% {
+    transform: translateX(-100%) skew(5deg);
+  }
+  100% {
+    transform: translateX(100%) skew(5deg);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 4px 16px rgba(0,0,0,0.6), 0 0 20px rgba(255,255,255,0.1);
+  }
+  50% {
+    text-shadow: 0 4px 16px rgba(0,0,0,0.6), 0 0 30px rgba(255,255,255,0.2), 0 0 40px rgba(147,51,234,0.3);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-float-up {
+  animation: float-up linear infinite;
+}
+
+.animate-gradient-x {
+  animation: gradient-x 15s ease infinite;
+}
+
+.animate-gradient-xy {
+  animation: gradient-xy 20s ease infinite;
+}
+
+.animate-wave-slow {
+  animation: wave-slow 8s ease-in-out infinite;
+}
+
+.animate-wave-fast {
+  animation: wave-fast 5s ease-in-out infinite reverse;
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+.bg-noise-pattern {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob,
+  .animate-shimmer,
+  .animate-float-up,
+  .animate-gradient-x,
+  .animate-gradient-xy,
+  .animate-wave-slow,
+  .animate-wave-fast,
+  .animate-twinkle,
+  .animate-pulse-glow {
+    animation: none;
+  }
+}
